@@ -1,0 +1,29 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>
+                Actualizar contacto
+            </h1>
+        </div>
+        
+        <div class="card-footer">
+            <form action="/update/{{id}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="firstname" placeholder="Primer Nombre" class="form-control" value={{contacto.nombre}} autofocus required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="lastname" placeholder="Apellidos" class="form-control" value={{contacto.apellido}}>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Correo electronico" class="form-control" value={{contacto.correo}} required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" maxlength=10 name="phone" placeholder="Telefono" class="form-control" value={{contacto.telefono}} required>
+                </div>
+                <button class="btn btn-primary btn-block">
+                    Actualizar
+                </button>
+            </form>
+        </div>   
+    </div>
+</div>

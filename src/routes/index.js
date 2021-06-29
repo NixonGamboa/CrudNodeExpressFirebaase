@@ -33,4 +33,23 @@ router.get("/delete-contact/:id", (req, res) => {
   db.ref("contactos/" + req.params.id).remove();
   res.redirect("/");
 });
+
+router.get("/update-contact/:id", (req, res) => {
+  db.ref("contactos/" + req.params.id).once("value", (snapshot) => {
+    const data = snapshot.val();
+    res.render("update", { id: req.params.id, contacto: data });
+  });
+});
+
+router.post("/update/:id", (req, res) => {
+  const updateContact = {
+    nombre: req.body.firstname,
+    apellido: req.body.lastname,
+    correo: req.body.email,
+    telefono: req.body.phone,
+  };
+  db.ref("contactos").child(req.params.id).update(updateContact);
+  res.redirect("/");
+});
+
 module.exports = router;
