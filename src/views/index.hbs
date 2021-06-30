@@ -10,17 +10,26 @@
             <ul class = "list-group">
                 {{#each contactos}}
                 <li class = "list-group-item d-flex justify-content-between align-items-center">
-                    {{nombre}}
-                    {{apellido}}/
-                    {{correo}}/
-                    {{telefono}}
-                    
-                    <a href="/update-contact/{{@key}}"  class = "btn btn-warning">
-                        Actualizar
-                    </a>
-                    <a href="/delete-contact/{{@key}}"  class = "btn btn-danger">
-                        Eliminar
-                    </a>
+                    <div class="column">
+                        <div>
+                            {{nombre}}
+                            {{apellido}}
+                        </div>
+                        <div>
+                            {{correo}}
+                        </div>
+                        <div>
+                            {{telefono}}
+                        </div>
+                    </div>
+                    <div class="column">
+                        <a href="/update-contact/{{@key}}"  class = "btn btn-warning">
+                            Actualizar
+                        </a>
+                        <a href="/delete-contact/{{@key}}"  class = "btn btn-danger">
+                            Eliminar
+                        </a>
+                    </div>
                 </li>
                 {{/each}}
             </ul>
@@ -40,7 +49,7 @@
                     <input type="email" name="email" placeholder="Correo electronico" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" maxlength=10 name="phone" placeholder="Telefono" class="form-control" required>
+                    <input type="tel" pattern="[+,0-9]{8,10}" maxlength=13 name="phone" placeholder="Celular" class="form-control" required>
                 </div>
                 <button class="btn btn-primary btn-block">
                     Agregar
